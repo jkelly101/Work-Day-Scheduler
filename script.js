@@ -15,9 +15,11 @@ var three = document.querySelector("#3");
 var four = document.querySelector("#4");
 var five = document.querySelector("#5");
 
-mons[(new Date()).getMonth()]
 
-days[(new Date()).getDay()]
+$("#currentDate").append(days[(new Date()).getDay()] + ", " + mons[(new Date()).getMonth()]);
+
+// mons[(new Date()).getMonth()]
+// days[(new Date()).getDay()]
 
 
 if(i === 12){
