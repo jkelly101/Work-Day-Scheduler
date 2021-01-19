@@ -32,3 +32,5 @@ if((new Date()).getHours() === i){ // uses military time 0-23 for hours
 * Momentjs is allowed but not required
 * Date object usage is preferred
 * css classes/rules will need to be applied
+
+Real time needs to be highlighted or red on the schedule
