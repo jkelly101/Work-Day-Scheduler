@@ -41,10 +41,10 @@ textarea {
 }
 
 .hour {
-  background-color: cyan;
+  background-color: white;
   color: #000000;
-  border-top: 1px dashed #000000;
-  border-radius: 15px;
+  z-index: 1;
+  border-radius: 15px 0 15px;
   padding: 10px;
   text-align: right;
 }
@@ -78,4 +78,8 @@ textarea {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+.currentDate {
+  color: black;
 }
