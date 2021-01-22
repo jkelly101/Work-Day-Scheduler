@@ -43,14 +43,14 @@ var currentHour = new Date().getHours();
 
 var currentDate = $("#currentDay");
 
-if (currentHour === 1 || currentHour === 21 || currentHour == 31) {
-  currentDate.text(day + ", " + month + " " + date + "st");
-} else if (currentHour === 2 || currentHour === 22) {
-  currentDate.text(day + ", " + month + " " + date + "nd");
-} else if (currentHour === 3 || currentHour === 23) {
-  currentDate.text(day + ", " + month + " " + date + "rd");
+if (date === 1 || date === 21 || date == 31) {
+  currentDate.text(date + ", " + month + " " + date + "st");
+} else if (date === 2 || date === 22) {
+  currentDate.text(date + ", " + month + " " + date + "nd");
+} else if (date === 3 || date === 23) {
+  currentDate.text(date + ", " + month + " " + date + "rd");
 } else {
-  currentDate.text(day + ", " + month + " " + date + "th");
+  currentDate.text(date + ", " + month + " " + date + "th");
 }
 
 var timeBlock = $(".time-block");
@@ -67,16 +67,16 @@ for (var i = 0; i < timeBlock.length; i++) {
   }
 }
 
-var taskItems = [ ];
+var taskItems = [];
 
-function renderTasks(){
-    for (var i = 0; i < timeBlock.length; i++){
-        console.log(timeBlockValue[i].children)
-    }
+function renderTasks() {
+  for (var i = 0; i < timeBlock.length; i++) {
+    console.log(timeBlockValue[i].children);
+  }
 }
 
 $(".saveBtn").on("click", function () {
-    timeBlock.child[0].text
+  console.log($(this).prev().children().val());
 });
 
 // local storage: use "this" siblings/parents .siblings attr
