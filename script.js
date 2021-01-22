@@ -76,7 +76,10 @@ function renderTasks() {
 }
 
 $(".saveBtn").on("click", function () {
-  console.log($(this).prev().children().val());
+  var savedTasks = $(this).prev().children().val();
+  // console.log(savedTasks);
+  localStorage.setItem('taskItems', savedTasks);
+
 });
 
 // local storage: use "this" siblings/parents .siblings attr
