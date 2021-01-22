@@ -4,18 +4,18 @@
 // ```
 
 var mons = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
+  "January",
+  "February",
+  "March",
+  "April",
   "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
 var days = [
   "Sunday",
@@ -36,47 +36,50 @@ var three = document.querySelector("#three");
 var four = document.querySelector("#four");
 var five = document.querySelector("#five");
 
-days[new Date().getDay()]; 
-mons[new Date().getMonth()];
-new Date().getDate();
+var day = days[new Date().getDay()];
+var month = mons[new Date().getMonth()];
+var date = new Date().getDate();
 var currentHour = new Date().getHours();
 
 var currentDate = $("#currentDay");
 
-currentDate.text(days[new Date().getDay()] + ", " + mons[new Date().getMonth()] + " " + new Date().getDate() + "th");
+if (currentHour === 1 || currentHour === 21 || currentHour == 31) {
+  currentDate.text(day + ", " + month + " " + date + "st");
+} else if (currentHour === 2 || currentHour === 22) {
+  currentDate.text(day + ", " + month + " " + date + "nd");
+} else if (currentHour === 3 || currentHour === 23) {
+  currentDate.text(day + ", " + month + " " + date + "rd");
+} else {
+  currentDate.text(day + ", " + month + " " + date + "th");
+}
 
 var timeBlock = $(".time-block");
-// console.log(timeBlock);
- for(var i = 0; i < timeBlock.length; i++){
-    var timeBlockValue = parseInt($(timeBlock[i]).attr("value"));
-    if (timeBlockValue < currentHour){
-        $(timeBlock[i]).addClass("past");
+var timeBlockValue = parseInt($(timeBlock[i]).attr("value"));
+
+for (var i = 0; i < timeBlock.length; i++) {
+  var timeBlockValue = parseInt($(timeBlock[i]).attr("value"));
+  if (timeBlockValue < currentHour) {
+    $(timeBlock[i]).addClass("past");
+  } else if (timeBlockValue === currentHour) {
+    $(timeBlock[i]).addClass("present");
+  } else if (timeBlockValue > currentHour) {
+    $(timeBlock[i]).addClass("future");
+  }
+}
+
+var taskItems = [ ];
+
+function renderTasks(){
+    for (var i = 0; i < timeBlock.length; i++){
+        console.log(timeBlockValue[i].children)
     }
-    else if (timeBlockValue === currentHour){
-        $(timeBlock[i]).addClass("present");
-    }
-    else if (timeBlockValue > currentHour){
-        $(timeBlock[i]).addClass("future");
-    }
+}
 
- }
+$(".saveBtn").on("click", function () {
+    timeBlock.child[0].text
+});
 
- //local storage "this" siblings/parents .siblings attr
-
-// ```
-// GIVEN I am using a daily planner to create a schedule
-// WHEN I open the planner
-// THEN the current day is displayed at the top of the calendar
-// Use date object()
-
-// WHEN I scroll down
-// THEN I am presented with time blocks for standard business hours
-// 9am - 5pm
-
-// WHEN I view the time blocks for that day
-// THEN each time block is color-coded to indicate whether it is in the past, present, or future
-// Assign each block a time.
-// A style in JS to change color as time changes. Date object?
+// local storage: use "this" siblings/parents .siblings attr
 
 // WHEN I click into a time block
 // THEN I can enter an event
@@ -86,6 +89,10 @@ var timeBlock = $(".time-block");
 // THEN the text for that event is saved in local storage
 // Set local storage
 
+// check if there is content
+// if there is content, setItem
+// else do nothing
+
 // WHEN I refresh the page
 // THEN the saved events persist
-// get local storage
+// getItem
