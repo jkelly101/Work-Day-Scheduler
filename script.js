@@ -68,15 +68,19 @@ for (var i = 0; i < timeBlock.length; i++) {
 }
 
 $(".saveBtn").on("click", function () {
-  if (localStorage.taskItems === null) {
-    localStorage.setItem("taskItems", savedTasks);
-  }
+    // var task = text entered in <textarea>
+  var task = $(this).prev().children().val();
+  
+  // if("storedTasks" === null){
+    // check if there is content - if empty, add storedTasks
+    // storedTasks = localStorage Key where I will be saving the tasks
+  localStorage.setItem("storedTasks", JSON.stringify(task));
+  
+  var data = JSON.parse(localStorage.getItem("storedTasks"));
 
-  var savedTasks = $(this).prev().children().val();
-  localStorage.setItem("taskItems", savedTasks);
+  task = data;
+  // };
 });
-
-// local storage: use "this" siblings/parents .siblings attr
 
 // WHEN I click into a time block
 // THEN I can enter an event
