@@ -67,19 +67,16 @@ for (var i = 0; i < timeBlock.length; i++) {
   }
 }
 
-var taskItems = [];
-
-function renderTasks() {
-  for (var i = 0; i < timeBlock.length; i++) {
-    console.log(timeBlockValue[i].children);
+$(".saveBtn").on("click", function save() {
+  var taskItem = $(this).prev().children().val();
+  if (localStorage.getItem("savedTaskData") === null) {
+    localStorage.setItem("savedTaskData", "[]");
   }
-}
 
-$(".saveBtn").on("click", function () {
-  var savedTasks = $(this).prev().children().val();
-  // console.log(savedTasks);
-  localStorage.setItem('taskItems', savedTasks);
+  var savedTasks = JSON.parse(localStorage.getItem("savedTaskData"));
+  savedTasks.push(retrievedData);
 
+  localStorage.setItem("savedTaskData", JSON.stringify(retrievedData));
 });
 
 // local storage: use "this" siblings/parents .siblings attr
