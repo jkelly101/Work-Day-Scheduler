@@ -67,15 +67,14 @@ for (var i = 0; i < timeBlock.length; i++) {
   }
 }
 
-// $(".saveBtn").on("click", function () {
-//   if (localStorage.taskItems === null) {
-//     localStorage.setItem("taskItemData", savedTasks);
-//   }
-//   var savedTasks = $(this).prev().children().val();
-//   console.log(savedTasks);
-//   // console.log(this);
-//   localStorage.setItem("taskItems", savedTasks);
-// });
+$(".saveBtn").on("click", function () {
+  if (localStorage.taskItems === null) {
+    localStorage.setItem("taskItems", savedTasks);
+  }
+
+  var savedTasks = $(this).prev().children().val();
+  localStorage.setItem("taskItems", savedTasks);
+});
 
 // local storage: use "this" siblings/parents .siblings attr
 
