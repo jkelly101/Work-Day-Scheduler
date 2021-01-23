@@ -44,13 +44,13 @@ var currentHour = new Date().getHours();
 var currentDate = $("#currentDay");
 
 if (date === 1 || date === 21 || date == 31) {
-  currentDate.text(date + ", " + month + " " + date + "st");
+  currentDate.text(day + ", " + month + " " + date + "st");
 } else if (date === 2 || date === 22) {
-  currentDate.text(date + ", " + month + " " + date + "nd");
+  currentDate.text(day + ", " + month + " " + date + "nd");
 } else if (date === 3 || date === 23) {
-  currentDate.text(date + ", " + month + " " + date + "rd");
+  currentDate.text(day + ", " + month + " " + date + "rd");
 } else {
-  currentDate.text(date + ", " + month + " " + date + "th");
+  currentDate.text(day + ", " + month + " " + date + "th");
 }
 
 var timeBlock = $(".time-block");
