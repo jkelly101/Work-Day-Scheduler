@@ -67,21 +67,15 @@ for (var i = 0; i < timeBlock.length; i++) {
   }
 }
 
-// var taskItems = [];
-
-// function renderTasks() {
-//   for(i = 0; i === savedTasks.length; i++){
-//     console.log(i);
+// $(".saveBtn").on("click", function () {
+//   if (localStorage.taskItems === null) {
+//     localStorage.setItem("taskItemData", savedTasks);
 //   }
-
-// }
-
-$(".saveBtn").on("click", function () {
-  var savedTasks = $(this).prev().children().val();
-  console.log(savedTasks);
-  // console.log(this);
-  localStorage.setItem("taskItems", savedTasks);
-});
+//   var savedTasks = $(this).prev().children().val();
+//   console.log(savedTasks);
+//   // console.log(this);
+//   localStorage.setItem("taskItems", savedTasks);
+// });
 
 // local storage: use "this" siblings/parents .siblings attr
 
