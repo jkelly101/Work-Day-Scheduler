@@ -26,15 +26,15 @@ var days = [
   "Friday",
   "Saturday",
 ];
-var nine = document.querySelector("#nine");
-var ten = document.querySelector("#ten");
-var eleven = document.querySelector("#eleven");
-var twelve = document.querySelector("#twelve");
-var one = document.querySelector("#one");
-var two = document.querySelector("#two");
-var three = document.querySelector("#three");
-var four = document.querySelector("#four");
-var five = document.querySelector("#five");
+// var nine = document.querySelector("#nine");
+// var ten = document.querySelector("#ten");
+// var eleven = document.querySelector("#eleven");
+// var twelve = document.querySelector("#twelve");
+// var one = document.querySelector("#one");
+// var two = document.querySelector("#two");
+// var three = document.querySelector("#three");
+// var four = document.querySelector("#four");
+// var five = document.querySelector("#five");
 
 var day = days[new Date().getDay()];
 var month = mons[new Date().getMonth()];
@@ -54,7 +54,6 @@ if (date === 1 || date === 21 || date == 31) {
 }
 
 var timeBlock = $(".time-block");
-var timeBlockValue = parseInt($(timeBlock[i]).attr("value"));
 
 for (var i = 0; i < timeBlock.length; i++) {
   var timeBlockValue = parseInt($(timeBlock[i]).attr("value"));
@@ -67,33 +66,33 @@ for (var i = 0; i < timeBlock.length; i++) {
   }
 }
 
-$(".saveBtn").on("click", function () {
-    // var task = text entered in <textarea>
-  var task = $(this).prev().children().val();
-  
-  // if("storedTasks" === null){
-    // check if there is content - if empty, add storedTasks
-    // storedTasks = localStorage Key where I will be saving the tasks
-  localStorage.setItem("storedTasks", JSON.stringify(task));
-  
-  var data = JSON.parse(localStorage.getItem("storedTasks"));
-
-  task = data;
-  // };
-});
-
-// WHEN I click into a time block
-// THEN I can enter an event
-// Use Render() to allow user to enter text when block is clicked
-
 // WHEN I click the save button for that time block
 // THEN the text for that event is saved in local storage
 // Set local storage
 
-// check if there is content
-// if there is content, setItem
-// else do nothing
+function getTaskNine() {
+  var storedTaskNine = JSON.parse(localStorage.getItem("nineAM"));
+  console.log(storedTaskNine);
 
-// WHEN I refresh the page
-// THEN the saved events persist
-// getItem
+  if (storedTaskNine !== null) {
+    inputNine = storedTaskNine;
+  }
+}
+
+$("#saveNine").on("click", function () {
+  var inputNine = $("#taskNine").val();
+  console.log(inputNine);
+  localStorage.setItem("nineAM", JSON.stringify(inputNine));
+});
+
+// // WHEN I click into a time block
+// // THEN I can enter an event
+// // Use Render() to allow user to enter text when block is clicked
+
+// // check if there is content
+// // if there is content, setItem
+// // else do nothing
+
+// // WHEN I refresh the page
+// // THEN the saved events persist
+// // getItem
