@@ -6,7 +6,7 @@ For this project I created a Work Day Scheduler which allows the user to enter t
 
 To keep more organized and motivated throughout the work day and to keep on task.
 
-### Using get Date() 
+### Using new Date() 
 
 ![Code Snapshot](https://github.com/jkelly101/Work-Day-Scheduler/blob/main/Screenshots/Code%20Snapshot.png?raw=true)
 
