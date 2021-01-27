@@ -70,19 +70,33 @@ for (var i = 0; i < timeBlock.length; i++) {
 // THEN the text for that event is saved in local storage
 // Set local storage
 
-function getTaskNine() {
-  var storedTaskNine = JSON.parse(localStorage.getItem("nineAM"));
-  console.log(storedTaskNine);
+function getTasks() {
+  // var storedTaskNine = localStorage.getItem("nineAM");
+  // console.log(storedTaskNine);
 
-  if (storedTaskNine !== null) {
-    inputNine = storedTaskNine;
-  }
+  // if (storedTaskNine !== null) {
+    $("#taskNine").text(localStorage.getItem("taskNine"));
+    $("#taskTen").text(localStorage.getItem("taskTen"));
+    $("#taskEleven").text(localStorage.getItem("taskEleven"));
+  // }
 }
 
-$("#saveNine").on("click", function () {
-  var inputNine = $("#taskNine").val();
-  console.log(inputNine);
-  localStorage.setItem("nineAM", JSON.stringify(inputNine));
+// getTaskNine();
+
+// $("#saveNine").on("click", function () {
+//   var inputNine = $("#taskNine").val();
+//   console.log(inputNine);
+//   localStorage.setItem("nineAM", inputNine);
+// });
+
+getTasks();
+
+$(".saveBtn").on("click", function (event) {
+  var input = $(event.target).prev().children().val();
+  var key = $(event.target).prev().children().attr("id");
+  console.log(key);
+  console.log(input);
+  localStorage.setItem(key, input);
 });
 
 // // WHEN I click into a time block
